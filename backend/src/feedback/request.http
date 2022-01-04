@@ -1,14 +1,14 @@
-GET  http://localhost:6000/feedback/
+GET  http://localhost:5000/feedback/
 
 
 ###
 
-POST http://localhost:6000/feedback/
+POST http://localhost:5000/feedback/
 Content-Type: application/json
 
 {
-    "userId": "00000000-0000-474c-b092-b0dd880c07e1",
-    "tittle": "loi phan mem",
-    "content": "loi phan mem loi xay ra thuong xuyen",
-    "createAt": ""
+    "userid": "e21682f9-9ffc-4227-b4d6-ae7b41519f02",
+    "title": "loi phan mem332q",
+    "content": "loi phan mem loi xay ra thuong xuyen33kk11",
+    "createdat": ""
 }

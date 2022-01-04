@@ -27,12 +27,12 @@ class FeedbackController {
 
         //khai bao request.body
 
-        const {userId,tittle,content,createAt} = req.body;
+        const {userid,title,content,createdat} = req.body;
 
 
         // query insert vao table feedback, no nhu sql nen de nho lam
-        db.query('INSERT INTO feedback(userid,tittle,content,isread) VALUES ($1, $2, $3, $4 )', 
-        [userId,tittle,content,read], (err,results) => {
+        db.query('INSERT INTO feedback(userid,title,content,isread) VALUES ($1, $2, $3, $4 )', 
+        [userid,title,content,read], (err,results) => {
             // chia thanh 2 truong hop loi va khong loi. Neu loi xay ra thi success: fail tren json
             if(err)
             {
@@ -44,7 +44,7 @@ class FeedbackController {
                 })
 
             }
-                else res.status(200).json(results.userid)
+                else res.status(200).json(results.userId)
             })
     }
 }

@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const route = require('./routes/index');
 const app = express();
-const port = 6000
+const port = 5000
 const feedbackRoute = require('./routes/feedbackRoute')
 
 
