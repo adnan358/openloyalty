@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req,res) =>{
-    res.log(res.body);
+    console.log(res.body);
 })
 
 

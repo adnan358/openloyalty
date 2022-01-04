@@ -1,0 +1,25 @@
+# Logs #
+/logs
+*.log
+*.log*
+
+# Node files #
+node_modules/
+npm-debug.log
+yarn-error.log
+# OS generated files #
+.DS_Store
+Thumbs.db
+.tmp/
+
+# Dist #
+dist/
+
+# IDE #
+.idea/
+*.swp
+.awcache
+package-lock.json
+yarn.lock
+# Generated source-code #
+coverage/
