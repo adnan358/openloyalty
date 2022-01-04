@@ -1,0 +1,14 @@
+GET  http://localhost:6000/feedback/
+
+
+###
+
+POST http://localhost:6000/feedback/
+Content-Type: application/json
+
+{
+    "userId": "00000000-0000-474c-b092-b0dd880c07e1",
+    "tittle": "loi phan mem",
+    "content": "loi phan mem loi xay ra thuong xuyen",
+    "createAt": ""
+}
