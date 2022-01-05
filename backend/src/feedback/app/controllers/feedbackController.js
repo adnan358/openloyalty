@@ -9,7 +9,7 @@ class FeedbackController {
 
     async get(req, res, next) {
         try {
-            const query = "SELECT * FROM feedback ORDER BY id DESC"
+            const query = "SELECT * FROM feedback,ol__user WHERE feedback.userid = ol__user.id ORDER BY feedback.id DESC"
             const data = await db.query(query)
             const allUsers = data.rows
             res.status(200).json(allUsers)
