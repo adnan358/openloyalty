@@ -9,10 +9,10 @@ class FeedbackController {
 
     async get(req, res, next) {
         try {
-            const query = "SELECT * FROM feedback,ol__user WHERE feedback.userid = ol__user.id ORDER BY feedback.id DESC"
+            const query = "SELECT * FROM feedback ORDER BY id DESC"
             const data = await db.query(query)
-            const allUsers = data.rows
-            res.status(200).json(allUsers)
+            const allUser = data.rows
+            res.status(200).json(allUser)
         } catch (error) {
             res.status(400).json({
                 success: false,
@@ -39,14 +39,38 @@ class FeedbackController {
                 console.log("khong ton tai userId")
                 res.status(401).json({
                     success: false,                  
-                    err,
-                    
+                    err,         
                 })
 
             }
                 else res.status(200).json(results.userId)
-            })
+        })
     }
+
+    async put(req,res,next) {
+        const {id} = req.body
+
+
+        // query insert vao table feedback, no nhu sql nen de nho lam
+        db.query('UPDATE feedback SET isread = true WHERE id = $1', 
+        [id], (err,results) => {
+            // chia thanh 2 truong hop loi va khong loi. Neu loi xay ra thi success: fail tren json
+            if(err)
+            {
+                console.log("khong ton tai id")
+                res.status(401).json({
+                    success: false,                  
+                    err,         
+                })
+
+            }
+                else res.status(200).json(results.userId)
+        })
+
+    }
+
+
+
 }
 
 

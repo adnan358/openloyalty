@@ -12,6 +12,6 @@ router.post('/',feedbackController.post)
 
 router.get('/', feedbackController.get)
 
-
+router.put('/',feedbackController.put)
 
 module.exports = router

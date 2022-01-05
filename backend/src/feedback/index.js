@@ -30,7 +30,9 @@ app.post('/', (req,res) =>{
     console.log(res.body);
 })
 
-
+app.put('/', (req,res) =>{
+    console.log(res.body)
+})
 
 
 

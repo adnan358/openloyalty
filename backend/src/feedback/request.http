@@ -12,3 +12,10 @@ Content-Type: application/json
     "content": "loi phan mem loi xay ra thuong xuyen33kk11",
     "createdat": ""
 }
+###
+PUT http://localhost:5000/feedback/
+Content-Type: application/json
+
+{
+    "id": "10"
+}
