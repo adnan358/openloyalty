@@ -1,8 +1,8 @@
 FROM composer:1 AS composer
 FROM openloyalty/base-php-fpm AS base
 
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+# RUN pecl install xdebug
+# RUN docker-php-ext-enable xdebug
 RUN usermod -u 1000 www-data
 
 RUN pecl install apcu

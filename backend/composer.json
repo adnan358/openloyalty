@@ -16,9 +16,16 @@
             "": "tests/"
         }
     },
+    "repositories": [{
+        "type": "path",
+        "url": "/var/www/openloyalty/lib/divante-ltd/open-loyalty-framework",
+        "options": {
+            "symlink": false
+        }
+    }],
     "require": {
         "php": ">=7.1",
-        "divante-ltd/open-loyalty-framework": "^3.2"
+        "divante-ltd/open-loyalty-framework": "@dev"
     },
     "scripts": {
         "post-install-cmd": [
