@@ -1,4 +1,4 @@
-FROM composer:1 AS composer
+FROM composer:2.2 AS composer
 FROM openloyalty/base-php-fpm AS base
 
 # RUN pecl install xdebug
