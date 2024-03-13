@@ -13,7 +13,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-        - '../backend:/var/www/openloyalty'
+        - '../backend2:/var/www/openloyalty'
     env_file:
         - .env
   nginx:

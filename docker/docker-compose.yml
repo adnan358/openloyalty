@@ -3,7 +3,7 @@ version: "2"
 services:
   php:
     container_name: openloyalty_backend
-    image: divante/open-loyalty-fpm
+    image: dkarameris/open-loyalty-fpm
     links:
       - db
       - elk
@@ -14,7 +14,7 @@ services:
         - .env
   nginx:
     container_name: openloyalty_frontend
-    image: divante/open-loyalty-web
+    image: deejaymathew/open-loyalty-web
     links:
       - php
     ports:
