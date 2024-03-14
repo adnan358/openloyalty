@@ -13,7 +13,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-        - '../backend:/var/www/openloyalty'
+        - '../backend2:/var/www/openloyalty'
     env_file:
         - .env
   nginx:
@@ -43,7 +43,7 @@ services:
     ports:
       - "9200:9200"
   db:
-    container_name: open_loyalty_db
+    container_name: open_loyalty_dbgi
     image: postgres:9
     ports:
       - "5432:5432"
