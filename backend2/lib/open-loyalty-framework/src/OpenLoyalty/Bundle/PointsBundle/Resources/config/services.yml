@@ -1,0 +1,66 @@
+services:
+
+  OpenLoyalty\Bundle\PointsBundle\Controller\:
+      resource: '../../Controller'
+      tags: ['controller.service_arguments']
+
+  oloy.account.form_type.add_points:
+      class: OpenLoyalty\Bundle\PointsBundle\Form\Type\AddPointsFormType
+      arguments:
+        - '@oloy.user.read_model.repository.customer_details'
+      tags:
+        - { name: form.type }
+  oloy.account.form_type.spend_points:
+      class: OpenLoyalty\Bundle\PointsBundle\Form\Type\SpendPointsFormType
+      parent: 'oloy.account.form_type.add_points'
+      tags:
+        - { name: form.type }
+
+  OpenLoyalty\Bundle\PointsBundle\Service\PointsTransfersManager:
+      #alias: 'oloy.account.points_transfers_manager'
+      public: true
+      arguments:
+        $commandBus: '@broadway.command_handling.command_bus'
+        $pointsTransferDetailsRepository: '@oloy.points.account.repository.points_transfer_details'
+        $settingsManager: '@OpenLoyalty\Bundle\SettingsBundle\Service\GeneralSettingsManager'
+
+  oloy.account.points_transfers_manager:
+      alias: OpenLoyalty\Bundle\PointsBundle\Service\PointsTransfersManager
+
+  oloy.account.points_transfers.serialization_listener:
+      class: OpenLoyalty\Bundle\PointsBundle\Event\Listener\PointsTransferSerializationListener
+      arguments:
+        - '@ol.settings.manager'
+        - '@oloy.pos.repository'
+        - '@oloy.transaction.read_model.repository.transaction_details'
+      tags:
+        - { name: jms_serializer.event_subscriber }
+
+  oloy.account.points_transfers.param_converter:
+    class: OpenLoyalty\Bundle\PointsBundle\ParamConverter\PointsTransferParamConverter
+    arguments: ['@oloy.points.account.repository.points_transfer_details']
+    tags:
+      - { name: request.param_converter, priority: 2, converter: points_transfer_converter }
+  oloy.account.listener.available_points_amount_changed:
+    class: OpenLoyalty\Bundle\PointsBundle\Event\Listener\AvailablePointsAmountChangedListener
+    arguments: ['@oloy.user.email_provider', '@oloy.user.read_model.repository.customer_details']
+    tags:
+      - { name: broadway.event_listener, method: onChange, event: oloy.account.available_points_amount_changed}
+
+  OpenLoyalty\Bundle\PointsBundle\Import\PointsTransferNodeStreamer: ~
+
+  OpenLoyalty\Bundle\PointsBundle\Import\PointsTransferImportProcessor:
+    arguments:
+        - "@broadway.command_handling.command_bus"
+
+  OpenLoyalty\Bundle\PointsBundle\Import\PointsTransferXmlImportConverter:
+    arguments:
+        - "@broadway.uuid.generator"
+        - "@oloy.points.account.repository.account_details"
+        - '@OpenLoyalty\Bundle\PointsBundle\Service\PointsTransfersManager'
+
+  OpenLoyalty\Bundle\PointsBundle\Import\PointsTransferXmlImporter:
+    calls:
+      - [setProcessor, ['@OpenLoyalty\Bundle\PointsBundle\Import\PointsTransferImportProcessor']]
+      - [setXmlStreamer, ['@OpenLoyalty\Bundle\PointsBundle\Import\PointsTransferNodeStreamer']]
+      - [setConverter, ['@OpenLoyalty\Bundle\PointsBundle\Import\PointsTransferXmlImportConverter']]

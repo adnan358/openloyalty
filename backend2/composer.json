@@ -16,9 +16,15 @@
             "": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./lib/open-loyalty-framework"
+        }
+    ],
     "require": {
         "php": ">=7.1",
-        "divante-ltd/open-loyalty-framework": "^2.8",
+        "divante-ltd/open-loyalty-framework": "@dev",
         "phpdocumentor/reflection-docblock": "^3.2",
         "phpdocumentor/type-resolver": "^0.3",
         "symfony/symfony": "3.4.14"

@@ -106,7 +106,7 @@ export default class DataService {
         let availableAccountActivationMethods = self.Restangular.one('settings').one('choices').one('availableAccountActivationMethods').get();
         let smsGatewatConfig = self.Restangular.one('settings').one('choices').one('smsGatewayConfig').get();
         let availableMarketingVendors = self.Restangular.one('settings').one('choices').one('availableMarketingVendors').get();
-        let availablePointExpireAfter = self.Restangular.one('settings').one('choices').one('availablePointExpireAfter').get();
+        //let availablePointExpireAfter = self.Restangular.one('settings').one('choices').one('availablePointExpireAfter').get();
 
         self.$q.all([
             languages,
@@ -121,7 +121,7 @@ export default class DataService {
             availableAccountActivationMethods,
             smsGatewatConfig,
             availableMarketingVendors,
-            availablePointExpireAfter])
+            /*availablePointExpireAfter*/])
             .then(
                 function (res) {
                     if (res[0].choices) {
@@ -333,7 +333,7 @@ export default class DataService {
                         self.availableMarketingVendorsConfig = config;
                     }
 
-                    if (res[12].choices) {
+                    /*if (res[12].choices) {
                         let pointsSettingsChoices = [];
                         let index = 0;
 
@@ -347,7 +347,7 @@ export default class DataService {
 
                         }
                         self.availablePointExpireAfter = pointsSettingsChoices;
-                    }
+                    }*/
 
                     dfd.resolve()
                 },

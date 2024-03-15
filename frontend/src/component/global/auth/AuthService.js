@@ -257,6 +257,7 @@ export default class AuthService {
         let prefix = self.selectPrefix();
 
         let decodedData = self.decodeToken(self.idToken[prefix]);
+
         if (decodedData ) {
             if (decodedData.superAdmin) {
                 return true;
