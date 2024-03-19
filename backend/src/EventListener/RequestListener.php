@@ -26,6 +26,7 @@ class RequestListener implements EventListener
                 $event->getType(),
                 [
                     'id' => $event->getId(),
+                    'event' => $event->getType(),
                     'playhead' => $event->getPlayhead(),
                     'metadata' => $event->getMetadata()->all(),
                     'payload' => $event->getPayload()->serialize(),
