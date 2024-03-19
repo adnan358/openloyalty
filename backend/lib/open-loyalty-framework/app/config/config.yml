@@ -131,7 +131,6 @@ monolog:
             # log *all* messages (debug is lowest level)
             level: debug
             channels: [plugins]
-
 enqueue:
     default:
         transport: '%env(RABBITMQ_TRANSPORT_DSN)%'

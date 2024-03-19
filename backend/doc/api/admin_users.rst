@@ -36,8 +36,7 @@ Definition
 +----------------------+----------------+-------------------------------------------------------------------+
 | admin[isActive]      | request        |  Set account active. Set 1 if active, otherwise 0                 |
 +----------------------+----------------+-------------------------------------------------------------------+
-| admin[roles][]       | request        |  Role IDs assigned to this administrator (max 1 role)             |
-+----------------------+----------------+-------------------------------------------------------------------+
+
 
 Example
 ^^^^^^^
@@ -54,8 +53,7 @@ To create a new admin user use the below method:
         -d "admin[email]=administrator@example.com" \
         -d "admin[external]=0" \
         -d "admin[plainPassword]=password1234" \
-        -d "admin[isActive]=1" \
-        -d "admin[roles][0]=37"
+        -d "admin[isActive]=1"
 
 Exemplary Response
 ^^^^^^^^^^^^^^^^^^
@@ -216,15 +214,7 @@ Exemplary Response
           "email": "administrator@example.com",
           "external": true,
           "apiKey": "customPernamentToken",
-          "dtype": "admin",
-          "roles": [
-                {
-                    "id": 38,
-                    "name": "Reporter admin",
-                    "role": "ROLE_ADMIN",
-                    "master": false
-                }
-            ],
+          "dtype": "admin"
         },
         {
           "id": "22200000-0000-474c-b092-b0dd880c07e2",
@@ -233,15 +223,7 @@ Exemplary Response
           "createAt": "2017-09-21T13:54:04+0200",
           "email": "admin@oloy.com",
           "external": false,
-          "dtype": "admin",
-          "roles": [
-                {
-                    "id": 38,
-                    "name": "Reporter admin",
-                    "role": "ROLE_ADMIN",
-                    "master": false
-                }
-            ],
+          "dtype": "admin"
         },
         {
           "id": "4383c58e-ff64-4e03-8364-5b716cb3e9e5",
@@ -251,15 +233,7 @@ Exemplary Response
           "email": "administrato123r@example.com",
           "external": true,
           "apiKey": "customPernamentToken123",
-          "dtype": "admin",
-          "roles": [
-                {
-                    "id": 38,
-                    "name": "Reporter admin",
-                    "role": "ROLE_ADMIN",
-                    "master": false
-                }
-            ],
+          "dtype": "admin"
         }
       ],
       "total": 3
@@ -298,8 +272,6 @@ Definition
 +----------------------+----------------+-------------------------------------------------------------------+
 | admin[isActive]      | request        |  Set account active. Set 1 if active, otherwise 0                 |
 +----------------------+----------------+-------------------------------------------------------------------+
-| admin[roles][]       | request        |  Role IDs assigned to this administrator (max 1 role)             |
-+----------------------+----------------+-------------------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -319,7 +291,7 @@ Example
         -d "admin[email]=administrator@example.com" \
         -d "admin[plainPassword]=newPassword12!" \
         -d "admin[external]=0" \
-        -d "admin[roles][0]=37"
+        -d "admin[isActive]=0"
 
 Exemplary Response
 ^^^^^^^^^^^^^^^^^^

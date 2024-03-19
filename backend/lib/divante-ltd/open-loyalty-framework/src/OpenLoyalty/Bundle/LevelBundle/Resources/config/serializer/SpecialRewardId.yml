@@ -1,6 +1,0 @@
-OpenLoyalty\Component\Level\Domain\SpecialRewardId:
-  exlusion_policy: ALL
-  properties:
-    specialRewardId:
-      expose: true
-      serialized_name: id

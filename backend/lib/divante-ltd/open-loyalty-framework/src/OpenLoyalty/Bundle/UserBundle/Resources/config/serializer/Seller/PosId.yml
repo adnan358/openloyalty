@@ -1,6 +1,0 @@
-OpenLoyalty\Component\Seller\Domain\PosId:
-  exlusion_policy: ALL
-  properties:
-    posId:
-      expose: true
-      serialized_name: posId

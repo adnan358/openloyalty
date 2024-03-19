@@ -403,7 +403,7 @@ Definition
 | Authorization                                  | header         |  Token received during authentication                                      |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[type]                              | request        |  The type of earning points. Possible types: Custom event rule, Customer   |
-|                                                |                |     Referral, Event Rule, General spending rule, Multiple earned points,   |
+|                                                |                |     Referral, Event Rule, General spending rule, Multiple earned points,      |
 |                                                |                |  Product Purchase, Multiple by product labels                              |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[rewardType]                        | request        |  Who will be rewarded. Possible types:                                     |
@@ -433,7 +433,6 @@ Definition
 | earningRule[limit][active]                     | request        |  Set 1 if usage limit active, otherwise 0                                  |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[limit][period]                     | request        |  Period usage limit. *(required only if ``[limit][active]=1``)*            |
-|                                                |                |  Possible parameters: day,week,month,3months,6months,year,forever          |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[limit][limit]                      | request        |  Usage limit. *(required only if ``[limit][active]=1``)*                   |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -449,14 +448,7 @@ Definition
 | earningRule[minOrderValue]                     | request        |  Points will not be calculated for whole purchase if its value will be     |
 |                                                |                |  below value                                                               |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| earningRule[inclusionType]                     | request        |  Accepted values: [include_labels, exclude_labels]. If include_labels is   |
-|                                                |                |  set - includedLabels will be used.                                        |
-|                                                |                |  if exclude_labels is set - excludedLabels will be used.                   |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[excludedLabels]                    | request        |  Points will not be calculated for the purchase of products with defined   |
-|                                                |                |  labels                                                                    |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| earningRule[includedLabels]                    | request        |  Points will be calculated only for the purchase of products with defined  |
 |                                                |                |  labels                                                                    |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[multiplier]                        | request        |  Points gained for purchase product will be multiplied by this factor      |
@@ -497,7 +489,6 @@ Example
         -d "earningRule[excludeDeliveryCost]=true" \
         -d "earningRule[excludedSKUs]=123" \
         -d "earningRule[minOrderValue]=2" \
-        -d "earningRule[inclusionType]=exclude_labels" \
         -d "earningRule[excludedLabels]=1:1" \
         -d "earningRule[multiplier]=2" \
         -d "earningRule[skuIds][0]=SKU123"
@@ -588,16 +579,9 @@ Definition
 | earningRule[excludedSKUs]                      | request        |  Excluding products with the given SKU                                     |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[minOrderValue]                     | request        |  Points will not be calculated for whole purchase if its value will be     |
-|                                                |                |  below value                                                               |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| earningRule[inclusionType]                     | request        |  Accepted values: [include_labels, exclude_labels]. If include_labels is   |
-|                                                |                |  set - includedLabels will be used.                                        |
-|                                                |                |  if exclude_labels is set - excludedLabels will be used.                   |
+|                                                |                |  below value                                                              |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[excludedLabels]                    | request        |  Points will not be calculated for the purchase of products with defined   |
-|                                                |                |  labels                                                                    |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| earningRule[includedLabels]                    | request        |  Points will be calculated only for the purchase of products with defined  |
 |                                                |                |  labels                                                                    |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | earningRule[multiplier]                        | request        |  Points gained for purchase product will be multiplied by this factor      |
@@ -639,7 +623,6 @@ To fully update a earningRule with ``earningRule = 00000000-0000-474c-b092-b0dd8
         -d "earningRule[excludeDeliveryCost]=true" \
         -d "earningRule[excludedSKUs]=123" \
         -d "earningRule[minOrderValue]=2" \
-        -d "earningRule[inclusionType]=exlude_labels" \
         -d "earningRule[excludedLabels]=1:1" \
         -d "earningRule[multiplier]=2" \
         -d "earningRule[skuIds][0]=SKU123"
@@ -971,60 +954,3 @@ Exemplary Response
 .. code-block:: text
 
     STATUS: 200 OK
-
-Geolocation
--------------------------------
-
-This method allows calculating points using geolocation you will need to call the ``/api/earningRule/geolocation/customer/<customer>`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/earningRule/geolocation/customer/<customer>
-
-+-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Parameter                           | Parameter type | Description                                                                                                                                                     |
-+=====================================+================+=================================================================================================================================================================+
-| Authorization                       | header         | Token received during authentication                                                                                                                            |
-+-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <customer>                          | query          | Customer ID                                                                                                                                                     |
-+-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| earningRule[latitude]               | body           | Current customer's latitude. Positive and negative values can be used.                                                                                                                                     |
-+-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| earningRule[longitude]              | body           | Current customer's longitude. Positive and negative values can be used.                                                                                                                                    |
-+-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| earningRule[earningRuleId]          | body           | *(optional)* UUID of the earning rule. If specified, only this one geo rule will be executed. If omitted, all rules applicable to the customer will be executed |
-+-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
-.. code-block:: bash
-
-    curl http://localhost:8181/api/earningRule/geolocation/customer/00000000-0000-474c-b092-b0dd880c07e1 \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "earningRule[latitude]=52.052240"
-        -d "earningRule[longitude]=-21.046587"
-        -d "earningRule[earningRuleId]=51283523-0760-474b-8c08-4ccd2b3a0f41"
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
-
-.. note::
-
-    The *00000000-0000-474c-b092-b0dd880c07e1* customer UUID, *83fe084b-3682-4ddb-bc10-c3c2373dfbcc* earning rule UUID, *52.052240, -21.046587* coordinates are example values.
-    Your values can be different.
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "points": 1
-    }

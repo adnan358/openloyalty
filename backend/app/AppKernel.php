@@ -9,7 +9,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-    public function registerBundles(): array
+    public function registerBundles()
     {
         $bundles = [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
@@ -29,9 +29,6 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Gesdinet\JWTRefreshTokenBundle\GesdinetJWTRefreshTokenBundle(),
             new Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
-            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
-            new A2lix\AutoFormBundle\A2lixAutoFormBundle(),
-            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new OpenLoyalty\Bundle\SettingsBundle\OpenLoyaltySettingsBundle(),
             new OpenLoyalty\Bundle\UserBundle\OpenLoyaltyUserBundle(),
             new OpenLoyalty\Bundle\LevelBundle\OpenLoyaltyLevelBundle(),
@@ -49,14 +46,12 @@ class AppKernel extends Kernel
             new OpenLoyalty\Bundle\UtilityBundle\OpenLoyaltyUtilityBundle(),
             new OpenLoyalty\Bundle\AuditBundle\OpenLoyaltyAuditBundle(),
             new OpenLoyalty\Bundle\EmailSettingsBundle\OpenLoyaltyEmailSettingsBundle(),
-            new OpenLoyalty\Bundle\TranslationBundle\OpenLoyaltyTranslationBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new OpenLoyalty\Bundle\CoreBundle\OpenLoyaltyCoreBundle(),
             new OpenLoyaltyPlugin\SalesManagoBundle\SalesManagoBundle(),
             new OpenLoyalty\Bundle\ImportBundle\OpenLoyaltyImportBundle(),
             new OpenLoyalty\Bundle\WorldTextBundle\OpenLoyaltyWorldTextBundle(),
-            new OpenLoyalty\Bundle\MarkDownBundle\OpenLoyaltyMarkDownBundle(),
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new \Enqueue\Bundle\EnqueueBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -69,22 +64,22 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
-    public function getRootDir(): string
+    public function getRootDir()
     {
         return __DIR__;
     }
 
-    public function getCacheDir(): string
+    public function getCacheDir()
     {
         return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
     }
 
-    public function getLogDir(): string
+    public function getLogDir()
     {
         return dirname(__DIR__).'/var/logs';
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader): void
+    public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }

@@ -37,6 +37,9 @@ ONBUILD RUN chmod 777 /var/www/openloyalty/var/logs
 ONBUILD RUN chown -R www-data:www-data /var/www/openloyalty
 
 ENV SYMFONY_ENV="dev"
+ENV APP_ENV="dev"
+ENV APP_DEBUG=true
 
 CMD composer install && bin/console assets:install && chown -R www-data:www-data /var/www/openloyalty && php-fpm
+CMD bin/console cache:clear && bin/console enqueue:setup-broker
 

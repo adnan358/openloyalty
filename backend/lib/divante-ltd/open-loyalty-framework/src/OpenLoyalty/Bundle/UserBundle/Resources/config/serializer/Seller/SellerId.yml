@@ -1,6 +1,0 @@
-OpenLoyalty\Component\Seller\Domain\SellerId:
-  exlusion_policy: ALL
-  properties:
-    sellerId:
-      expose: true
-      serialized_name: sellerId

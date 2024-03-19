@@ -40,16 +40,16 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
-    Check the list of all customers if you are not sure which id should be used.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an exemplary value. Your value can be different.
+    Check in the list of all customers if you are not sure which id should be used.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -92,16 +92,16 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
-    Check the list of all customers if you are not sure which id should be used.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an exemplary value. Your value can be different.
+    Check in the list of all customers if you are not sure which id should be used.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -121,7 +121,7 @@ Definition
 
 .. code-block:: text
 
-    GET /api/admin/customer/{customer}/status
+    POST /api/admin/customer/{customer}/status
 
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                                                  |
@@ -144,16 +144,16 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
-    Check the list of all customers if you are not sure which id should be used.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an exemplary value. Your value can be different.
+    Check in the list of all customers if you are not sure which id should be used.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -162,37 +162,23 @@ Example Response
 .. code-block:: json
 
     {
-      "firstName": "Test",
+      "firstName": "test",
       "lastName": "test",
-      "customerId": "a284f230-c1c0-4a1c-af9a-159b81de1f2b",
+      "customerId": "1bbafb37-b51b-47c5-b3e4-e0a2d028e655",
       "points": 0,
-      "totalEarnedPoints": 0,
       "usedPoints": 0,
       "expiredPoints": 0,
-      "lockedPoints": 0,
-      "level": "15.00%",
-      "levelName": "level1",
-      "levelConditionValue": 20,
-      "nextLevel": "20.00%",
-      "nextLevelName": "level2",
-      "nextLevelConditionValue": 200,
-      "transactionsAmountToNextLevelWithoutDeliveryCosts": 100,
-      "transactionsAmountWithoutDeliveryCosts": 100,
-      "averageTransactionsAmount": "50.00",
-      "transactionsCount": 2,
-      "transactionsAmount": 100,
-      "pointsToNextLevel": 200,
-      "currency": "eur",
-      "levelWillExpireInDays": 100,
-      "pointsSinceLastLevelRecalculation": 0,
-      "pointsRequiredToRetainLevel": 20
-      "pointsExpiringNextMonth": 150
+      "level": "14.00%",
+      "levelName": "level0",
+      "nextLevel": "15.00%",
+      "nextLevelName": "level1",
+      "transactionsAmountWithoutDeliveryCosts": 0,
+      "transactionsAmountToNextLevel": 20,
+      "averageTransactionsAmount": "0.00",
+      "transactionsCount": 0,
+      "transactionsAmount": 0,
+      "currency": "eur"
     }
-
-.. note::
-
-    The information in response may vary depends on the loyalty program configuration. Here is an example
-    of all possible information combine.
 
 Get customers
 -------------
@@ -204,7 +190,7 @@ Definition
 
 .. code-block:: text
 
-    GET /api/customer
+    POST /api/admin/customer/{customer}/status
 
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                           |
@@ -243,8 +229,6 @@ Definition
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | direction                          | query          | *(optional)* Direction of sorting [ASC, DESC]                          |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| _locale                            | query          | *(optional)* Retrieves data in given locale                            |
-+------------------------------------+----------------+------------------------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -259,11 +243,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -340,11 +324,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -436,11 +420,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -486,16 +470,16 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *token = abcde* is an example value. Your value can be different.
+    The *token = abcde* is an exemplary value. Your value can be different.
     The value can be checked in the database, table ``ol_user``, field ``action_token``.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -508,7 +492,7 @@ Example Response
 Create a new customer
 ---------------------
 
-To create a new customer you need to call the ``/api/customer/register`` endpoint with the ``POST`` method.
+To create a new customer you will need to call the ``/api/customer/register`` endpoint with the ``POST`` method.
 
 .. note::
 
@@ -532,7 +516,7 @@ Definition
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[lastName]                 | request        |  Last name                                                                                    |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[gender]                   | request        |  *(optional)* Gender. Possible values ``male``, ``female``, ``not_disclosed``                 |
+| customer[gender]                   | request        |  *(optional)* Gender. Possible values ``male``, ``female``                                    |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[email]                    | request        |  *(unique)* E-mail address                                                                    |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -562,8 +546,6 @@ Definition
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[loyaltyCardNumber]        | request        |  *(optional)* Loyalty card number *(unique)*                                                  |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                             |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement1]               | request        |  First agreement. Set 1 if true, otherwise 0                                                  |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement2]               | request        |  *(optional)* Second agreement. Set 1 if true, otherwise 0                                    |
@@ -591,11 +573,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -637,11 +619,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -667,11 +649,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -719,191 +701,6 @@ Example Response
       "errors": []
     }
 
-Update a customer
----------------------
-
-To update an existing customer you need to call the ``/api/customer/<customer>`` endpoint with the ``PUT`` method.
-
-.. note::
-
-    The fields you omit will not be affected. The fields you include and leave empty will have their current values removed.
-    Eg. ``customer[email]=&customer[loyaltyCardNumber]=000012`` will set loyaltyCardNumber, erase email and leave all other fields unaffected.
-
-.. note::
-
-    All simple fields can be updated separately, but compound fields (address, company) must be updated whole.
-    Attempt to update only one of the address' fields will result in deleting other parts of the address.
-    Attempt to update only name or nip will result in error code 500.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    PUT /api/customer/{customer}
-
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                                                  |
-+====================================+================+===============================================================================================+
-| Authorization                      | header         |  Token received during authentication                                                         |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| <customer>                         | query          |  Customer ID                                                                                  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[firstName]                | request        |  *(optional)* First name                                                                      |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[lastName]                 | request        |  *(optional)* Last name                                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[gender]                   | request        |  *(optional)* Gender. Possible values ``male``, ``female``                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[email]                    | request        |  *(optional)* *(unique)* E-mail address                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[phone]                    | request        |  *(optional)* A phone number *(unique)*                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[birthDate]                | request        |  *(optional)* Birth date in format YYYY-MM-DD HH:mm, for example ``2017-10-05``               |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[createdAt]                | request        |  *(optional)* Created at in format YYYY-MM-DD HH:mm:ss, for example ``2017-01-01 14:15:16``.  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][street]          | request        |  *(optional)* Street name                                                                     |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][address1]        | request        |  *(optional)* Building number                                                                 |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][address2]        | request        |  *(optional)* Flat/Unit name                                                                  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][postal]          | request        |  *(optional)* Post code                                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][city]            | request        |  *(optional)* City name                                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][province]        | request        |  *(optional)* Province name                                                                   |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][country]         | request        |  *(optional)* Country name                                                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[company][name]            | request        |  *(optional)* Company name                                                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[company][nip]             | request        |  *(optional)* Tax ID                                                                          |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[loyaltyCardNumber]        | request        |  *(optional)* Loyalty card number *(unique)*                                                  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                             |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[agreement1]               | request        |  *(optional)* First agreement. Set 1 if true, otherwise 0                                     |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[agreement2]               | request        |  *(optional)* Second agreement. Set 1 if true, otherwise 0                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[agreement3]               | request        |  *(optional)* Third agreement. Set 1 if true, otherwise 0                                     |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[referral_customer_email]  | request        |  *(optional)* Referral customer e-mail address.                                               |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/customer/e0eb0355-8aaa-4fb1-8159-f58e81b7a25c \
-        -X "PUT" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "customer[email]=john4@example.com" \
-        -d "customer[phone]=" \
-        -d "customer[agreement2]=1"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-
-    {
-        "customerId": "e0eb0355-8aaa-4fb1-8159-f58e81b7a25c"
-    }
-
-.. note::
-
-    In earlier versions, this endpoint returned user data after performing an update.
-    This feature was removed because in certain circumstances old data from before the update could be returned.
-    Use GET /api/customer/{customer} after the update to always get the up-to-date values instead.
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/customer/e0eb0355-8aaa-4fb1-8159-f58e81b7a25c \
-        -X "PUT" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "customer[phone]=+440000000"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 400 Bad Request
-
-.. code-block:: json
-
-    {
-        "form": {
-            "children": {
-                "firstName": {},
-                "lastName": {},
-                "gender": {},
-                "email": {},
-                "phone": {
-                    "errors": [
-                        "This value is not a valid phone number."
-                    ]
-                },
-                "birthDate": {},
-                "createdAt": {},
-                "address": {
-                    "children": {
-                        "street": {},
-                        "address1": {},
-                        "address2": {},
-                        "postal": {},
-                        "city": {},
-                        "province": {},
-                        "country": {}
-                    }
-                },
-                "company": {
-                    "children": {
-                        "name": {},
-                        "nip": {}
-                    }
-                },
-                "loyaltyCardNumber": {},
-                "labels": {},
-                "agreement1": {},
-                "agreement2": {},
-                "agreement3": {},
-                "referral_customer_email": {},
-                "levelId": {},
-                "posId": {},
-                "sellerId": {}
-            }
-        },
-        "errors": []
-    }
-
 Customer registrations in last 30 days
 --------------------------------------
 
@@ -936,11 +733,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
     Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 

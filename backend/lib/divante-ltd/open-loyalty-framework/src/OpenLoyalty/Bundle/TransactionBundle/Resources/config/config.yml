@@ -1,6 +1,0 @@
-jms_serializer:
-    metadata:
-      directories:
-        Transaction:
-          namespace_prefix: "OpenLoyalty\\Component\\Transaction\\Domain"
-          path: "@OpenLoyaltyTransactionBundle/Resources/config/serializer"

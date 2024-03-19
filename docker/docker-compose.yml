@@ -37,3 +37,11 @@ services:
     image: mailhog/mailhog
     ports:
       - "8186:8025"
+  rabbitmq:
+    container_name: open_loyalty_rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    env_file:
+      - .env

@@ -1,6 +1,0 @@
-OpenLoyalty\Component\EarningRule\Domain\EarningRuleId:
-  exlusion_policy: ALL
-  properties:
-    earningRuleId:
-      expose: true
-      serialized_name: earningRuleId

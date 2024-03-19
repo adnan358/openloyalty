@@ -1,6 +1,0 @@
-OpenLoyalty\Component\Campaign\Domain\ReadModel\AvailableCampaignsCache:
-  properties:
-    id:
-      exclude: true
-    visibleTo:
-      expose: true
